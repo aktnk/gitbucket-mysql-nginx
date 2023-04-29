@@ -48,6 +48,12 @@ And use MySQL sever for GitBucket's DB, and also use a Nginx reverse proxy and p
     ⠿ Container gitbucket  Started                                                              15.2s
     ⠿ Container gb-nginx   Started                                                               4.8s
     ```
+* add plugins  
+    To add a plugin, obtain the plugin jar file from the provider and place it in gitbucket/data/plugins.
+    ```
+    $ sudo cp (plugin filename).jar gitbucket/data/plugins/
+    ```
+
 # Reference
 
 * [yoshinorin
