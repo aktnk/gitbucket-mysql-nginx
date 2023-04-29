@@ -1,0 +1,54 @@
+version: "3"
+services:
+  gitbucket:
+    build:
+      context: ./gitbucket
+    container_name: gitbucket
+    environment:
+      - TZ=Asia/Tokyo
+      - GITBUCKET_HOME=/gitbucket
+      - GITBUCKET_PREFIX=gitbucket
+      - GITBUCKET_PORT=80
+      - GITBUCKET_DB_URL=jdbc:mysql://mysql:3306/gitbucket?userUnicode=true&chracterEncoding=utf8
+    ports:
+      - "80"
+      - "29418"
+    volumes:
+      - ./gitbucket/data:/gitbucket
+    restart: always
+    depends_on:
+      - mysql
+    env_file:
+      - .env
+  
+  mysql:
+    image: mysql:8.0.32
+    container_name: gb-mysql
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_ja_0900_as_cs
+    ports:
+      - "3306"
+    environment:
+      - TZ=Asia/Tokyo
+      - MYSQL_ROOT_PASSWORD_FILE=/.mysql-secret
+      - MYSQL_DATABASE=gitbucket
+    volumes:
+      - ./mysql/.secret:/.mysql-secret
+      - ./mysql/data:/var/lib/mysql
+    restart: always
+    env_file:
+      - .env
+    
+  nginx:
+    build:
+      context: ./nginx
+    container_name: gb-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/log:/var/log/nginx
+      - ./nginx/html:/var/www/html
+    depends_on:
+      - gitbucket
+    restart: always
+ 
