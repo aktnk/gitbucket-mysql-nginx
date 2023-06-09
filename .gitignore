@@ -1,8 +1,8 @@
 .env
 gitbucket/data/*
 !gitbucket/data/.gitkeep
-mysql/.*
+mysql/.secret
 mysql/data/*
 !mysql/data/.gitkeep
 nginx/log/*
-!./nginx/log/.gitkeep
+!nginx/log/.gitkeep
