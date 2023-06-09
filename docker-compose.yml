@@ -11,7 +11,7 @@ services:
       - GITBUCKET_PORT=8080
       - GITBUCKET_DB_URL=jdbc:mysql://mysql:3306/gitbucket?userUnicode=true&chracterEncoding=utf8
     ports:
-      - "8080:8080"
+      - "8080"
       - "29418"
     volumes:
       - ./gitbucket/data:/gitbucket
