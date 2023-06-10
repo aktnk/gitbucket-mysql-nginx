@@ -104,6 +104,6 @@ And use MySQL sever for GitBucket's DB, and also use a Nginx reverse proxy and p
 
 # Reference
 
-* [yoshinorin
-/
-docker-gitbucket-orchestration](https://github.com/yoshinorin/docker-gitbucket-orchestration)
+* [gitbucket/gitbucket](https://github.com/gitbucket/gitbucket)
+* [gitbucket/gitbucket-docker](https://github.com/gitbucket/gitbucket-docker)
+* [yoshinorin/docker-gitbucket-orchestration](https://github.com/yoshinorin/docker-gitbucket-orchestration)
