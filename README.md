@@ -51,7 +51,7 @@ And use MySQL sever for GitBucket's DB, and also use a Nginx reverse proxy and p
     ...
     gb-mysql  | 2023-06-09T23:10:56.379661Z 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.32'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
     ```
-* Next, run the gitbucket contaner. Check the log in the same way and confirm that the gitbucket server has started.
+* Next, run the gitbucket container. Check the log in the same way and confirm that the gitbucket server has started.
     ```
     $ docker compose up -d gitbucket
     [+] Building 0.0s (0/0)                                                                                                              
